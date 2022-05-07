@@ -1,22 +1,22 @@
 {
-  "name": "parcel-project-template",
+  "name": "filmoteka-reloaded",
   "version": "1.1.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://goitacademy.github.io/parcel-project-template",
+  "homepage": "https://cheestick.github.io/filmoteka-reloaded",
   "scripts": {
     "dev": "parcel src/*.html",
-    "build": "parcel build src/*.html --public-url /parcel-project-template/"
+    "build": "parcel build src/*.html --public-url /filmoteka-reloaded/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/goitacademy/parcel-project-template.git"
+    "url": "git+https://github.com/cheestick/filmoteka-reloaded.git"
   },
   "keywords": [],
-  "author": "Alexander Repeta <alexander.repeta@gmail.com>",
+  "author": "Maksym Chystiakov <maksym.chystiakov@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/goitacademy/parcel-project-template/issues"
+    "url": "https://github.com/cheestick/filmoteka-reloaded/issues"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.5",
@@ -24,5 +24,9 @@
     "parcel-plugin-nuke-dist": "^1.0.1",
     "posthtml-include": "^1.6.2",
     "sass": "^1.32.8"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "tui-pagination": "^3.4.1"
   }
 }
