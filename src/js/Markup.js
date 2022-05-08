@@ -17,3 +17,12 @@ export function card(props) {
 export function cardCollection(collection) {
   return collection.map(item => card(item)).join('');
 }
+
+export function render(component, parent) {
+  clear(parent);
+  parent.insertAjacenHTML('afterbegin', component);
+}
+
+function clear(component) {
+  component.innerHTML = '';
+}
