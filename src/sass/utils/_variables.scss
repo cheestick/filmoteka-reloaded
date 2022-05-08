@@ -2,6 +2,8 @@ $main-font: "Roboto";
 $primary-font-size: 12px;
 $primary-font-weight: 500;
 
+$accent-color: #ff6b08;
+
 $header-text-color: #FFFFFF;
 $body-text-color: #000000;
 $modal-window-text-color-primary: #000000;
@@ -18,3 +20,7 @@ $modal-window-background-color: #FFFFFF;
 
 $time: 270ms;
 $cubic: cubic-bezier(0.4, 0, 0.2, 1);
+
+$mobile-bp: 320px;
+$tablet-bp: 768px;
+$desktop-bp: 1024px;

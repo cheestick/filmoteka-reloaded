@@ -1,3 +1,36 @@
 .movie__card {
-    width: 100px;
+   width: 280px;
+   height: 440px;
+   overflow: hidden;
+}
+
+.movie__link {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.movie__poster {
+    width: 280px;
+    height: 398px;
+    object-fit: cover ;
+    object-position: center;
+    border-radius: 5px;
+}
+
+.movie__description {
+    font-size: 12px;
+    line-height: 16px;
+}
+.movie__title {
+    font-size: inherit;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: $body-text-color ;
+    overflow: hidden;
+}
+
+.movie__briefs {
+    color: $accent-color;
 }

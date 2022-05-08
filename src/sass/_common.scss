@@ -3,6 +3,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-width: $mobile-bp;
+    max-width: $desktop-bp;
+    margin: 0 auto;
     font-family: $main-font;
     font-size: $primary-font-size;
     font-weight: $primary-font-weight;
