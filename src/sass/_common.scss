@@ -3,14 +3,9 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
+    font-family: "Roboto";
+    font-size: $primary-font-size;
+    font-weight: $primary-font-weight;
+    color: #000000;
+    background-color: $app-background;
 }
