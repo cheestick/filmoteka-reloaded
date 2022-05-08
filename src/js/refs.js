@@ -7,3 +7,5 @@ const refs = {
   //   queue: document.querySelector('.queue__button'),
   //   watched: document.querySelector('.watched__button'),
 };
+
+export default refs;
