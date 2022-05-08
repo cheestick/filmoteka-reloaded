@@ -11,9 +11,9 @@ export function card(props) {
       <div class="movie__description">
           <h2 class="movie__title">${title}</h2>
           <p class="movie__briefs">
-              <span class="movie__genre">${genre_ids.join(', ')}</span>
+              <span class="movie__genre">${genre_ids.slice(0, 2).join(', ')}</span>
               <span class="movie__devider">&nbsp|&nbsp</span>
-              <span class="movie__year">${release_date}</span> 
+              <span class="movie__year">${release_date.slice(0, 4)}</span> 
               <span class="movie__rating">${vote_average}</span>
           </p>
       </div>
@@ -26,7 +26,6 @@ export function cardCollection(collection) {
 }
 
 export function render(component, parent) {
-  console.log(component, parent);
   clear(parent);
   parent.insertAdjacentHTML('afterbegin', component);
 }
