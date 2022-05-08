@@ -1,6 +1,8 @@
 import FetchService from './js/FetchService';
+import GenreList from './js/GenreList';
 import './sass/main.scss';
 
-console.log(FetchService);
-FetchService.trendingMovies();
-FetchService.genre();
+FetchService.trendingMovies().then(console.log);
+FetchService.genre()
+  .then(res => (GenreList.genres = res.data.genres))
+  .then(res => console.log(GenreList.genres));
