@@ -22,19 +22,19 @@ class FetchService {
   }
 
   trendingMovies() {
-    return this.server.get(URL.TREND).then(console.log);
+    return this.server.get(URL.TREND);
   }
 
   movieDetails(movieId) {
-    return this.server.get(URL.MOVIE + movieId).then(console.log);
+    return this.server.get(URL.MOVIE + movieId);
   }
 
   searchMovies(query) {
-    return this.server.get(URL.SEARCH, { query }).then(console.log);
+    return this.server.get(URL.SEARCH, { query });
   }
 
   genre() {
-    return this.server.get(URL.GENRE).then(console.log);
+    return this.server.get(URL.GENRE);
   }
 }
 
