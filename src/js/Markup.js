@@ -1,15 +1,15 @@
 export function card(props) {
   const { title, poster_path, genre, release_date, vote_average } = props;
-  return `<li class="card">
+  return `<li class="movie__card">
    <a class="movie__link">
-      <img class="poster" src="${poster_path}" alt="${title} poster"/>
-      <div class="description">
-          <h2 class="title">${title}</h2>
-          <p class="briefs">
-              <span class="genre">${genre.join(', ')}</span>
-              <span class="devider">&nbsp|&nbsp</span>
-              <span class="year">${release_date}</span> 
-              <span class="rating">${vote_average}</span>
+      <img class="movie__poster" src="${poster_path}" alt="${title} poster"/>
+      <div class="movie__description">
+          <h2 class="movie__title">${title}</h2>
+          <p class="movie__briefs">
+              <span class="movie__genre">${genre.join(', ')}</span>
+              <span class="movie__devider">&nbsp|&nbsp</span>
+              <span class="movie__year">${release_date}</span> 
+              <span class="movie__rating">${vote_average}</span>
           </p>
       </div>
     </a>
