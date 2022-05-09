@@ -75,8 +75,12 @@ export function movieInfoModal(props) {
         <p class="movie__overview">${overview}</p>
       </div>
       <div class="movie__controls">
-        <button class="watched">${watched ? 'Add to' : 'Remove from'} watched</button>
-        <button class="queue">${queue ? 'Add to' : 'Remove from'} queue</button>
+        <button class="watched">
+        ${watched ? 'Add to' : 'Remove from'} watched
+        </button>
+        <button class="queue">
+        ${queue ? 'Add to' : 'Remove from'} queue
+        </button>
       </div>
     </div>
   </div>
