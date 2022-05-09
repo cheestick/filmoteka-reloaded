@@ -1,5 +1,18 @@
 import { URL } from './routs';
 
+export function cardCollection(collection) {
+  return collection.map(item => card(item)).join('');
+}
+
+export function render(component, parent) {
+  clear(parent);
+  parent.insertAdjacentHTML('afterbegin', component);
+}
+
+function clear(component) {
+  component.innerHTML = '';
+}
+
 export function card(props) {
   const { id, title, poster_path, genres, release_date, vote_average } = props;
   return `<li class="movie__card">
@@ -111,17 +124,4 @@ export function spinner() {
     <div class="spinner">
     </div>
   `;
-}
-
-export function cardCollection(collection) {
-  return collection.map(item => card(item)).join('');
-}
-
-export function render(component, parent) {
-  clear(parent);
-  parent.insertAdjacentHTML('afterbegin', component);
-}
-
-function clear(component) {
-  component.innerHTML = '';
 }
