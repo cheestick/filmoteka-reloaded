@@ -22,6 +22,41 @@ export function card(props) {
    </li>`;
 }
 
+export function movieInfoModal(props) {
+  return `
+  <div class="backdrop">
+    <div class="modal movie-info">
+    </div>
+  </div>
+  `;
+}
+
+export function modalStudents(props) {
+  return `
+  <div class="modal developers">
+    <h2>Developed by</h2>
+    <ul class="developers_list">
+      <li class="developer">
+      </li>
+    </ul>
+  </div>`;
+}
+
+export function emptyContent(message) {
+  return `
+  <div class="empty">
+    <p class="empty_text">${message}</p>
+  </div>
+  `;
+}
+
+export function spinner() {
+  return `
+    <div class="spinner">
+    </div>
+  `;
+}
+
 export function cardCollection(collection) {
   return collection.map(item => card(item)).join('');
 }
