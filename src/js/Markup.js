@@ -1,6 +1,6 @@
 const posterURL = 'https://image.tmdb.org/t/p/';
 export function card(props) {
-  const { id, title, poster_path, genre_ids, release_date, vote_average } = props;
+  const { id, title, poster_path, genres, release_date, vote_average } = props;
   return `<li class="movie__card">
    <a class="movie__link" data-id="${id}">
       <img class="movie__poster"
@@ -11,7 +11,7 @@ export function card(props) {
       <div class="movie__description">
           <h2 class="movie__title">${title}</h2>
           <p class="movie__briefs">
-              <span class="movie__genre">${genre_ids.slice(0, 2).join(', ')}</span>
+              <span class="movie__genre">${genres.join(', ')}</span>
               <span class="movie__devider">&nbsp|&nbsp</span>
               <span class="movie__year">${release_date.slice(0, 4)}</span> 
               <span class="movie__rating">${vote_average}</span>
