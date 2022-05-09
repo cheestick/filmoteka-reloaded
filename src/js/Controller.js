@@ -38,8 +38,7 @@ class Controller {
         movie['genres'] = movie.genre_ids.map(id => genre.find(genre => genre.id === id).name);
         return movie;
       });
-      console.log(genre);
-      console.log(results);
+
       const cardList = Markup.cardCollection(results);
       Markup.render(cardList, refs.collection);
     });
