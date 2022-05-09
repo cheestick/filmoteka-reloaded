@@ -13,6 +13,7 @@ const userData = {
 const serviceData = {
   GENRES: 'genres',
   PAGINATION: 'pagination',
+  MOVIES: 'movies',
 };
 
 class Controller {
@@ -33,7 +34,7 @@ class Controller {
         movie['genres'] = movie.genre_ids.map(id => genre.find(genre => genre.id === id).name);
         return movie;
       });
-
+      LocalStorage.save(serviceData.MOVIES, results);
       const cardList = Markup.cardCollection(results);
       Markup.render(cardList, refs.collection);
     });
