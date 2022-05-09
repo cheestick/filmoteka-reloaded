@@ -17,30 +17,38 @@ const serviceData = {
 };
 
 class Controller {
-  constructor() {
-    FetchService.genre().then(res => {
-      // console.log(res);
-      LocalStorage.save(serviceData.GENRES, res.data.genres);
+  constructor() {}
+
+  async init() {
+    const [
+      {
+        data: { genres },
+      },
+      { data },
+    ] = await Promise.all([FetchService.genre(), FetchService.trendingMovies()]);
+
+    LocalStorage.save(serviceData.GENRES, genres);
+
+    const { page, total_pages, total_results } = data;
+    const pagination = { page, total_pages, total_results };
+    LocalStorage.save(serviceData.PAGINATION, pagination);
+
+    const genre = LocalStorage.load(serviceData.GENRES);
+
+    const results = data.results.map(movie => {
+      movie.genre_ids = movie.genre_ids.slice(0, 2);
+      movie.vote_average = movie.vote_average.toFixed(1);
+      movie.release_date = movie.release_date.slice(0, 4);
+      movie['genres'] = movie.genre_ids.map(id => genre.find(genre => genre.id === id).name);
+      return movie;
     });
-    FetchService.trendingMovies().then(({ data }) => {
-      const { page, total_pages, total_results } = data;
-      const pagination = { page, total_pages, total_results };
-      LocalStorage.save(serviceData.PAGINATION, pagination);
-      const genre = LocalStorage.load(serviceData.GENRES);
-      const results = data.results.map(movie => {
-        movie.genre_ids = movie.genre_ids.slice(0, 2);
-        movie.vote_average = movie.vote_average.toFixed(1);
-        movie.release_date = movie.release_date.slice(0, 4);
-        movie['genres'] = movie.genre_ids.map(id => genre.find(genre => genre.id === id).name);
-        return movie;
-      });
-      LocalStorage.save(serviceData.MOVIES, results);
-      const cardList = Markup.cardCollection(results);
-      Markup.render(cardList, refs.collection);
-    });
+
+    LocalStorage.save(serviceData.MOVIES, results);
+    const cardList = Markup.cardCollection(results);
+    Markup.render(cardList, refs.collection);
   }
 
-  async init() {}
+  async refreshCatalog() {}
 }
 
 export default new Controller();
