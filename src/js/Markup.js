@@ -1,4 +1,5 @@
-const posterURL = 'https://image.tmdb.org/t/p/';
+import { URL } from './routs';
+
 export function card(props) {
   const { id, title, poster_path, genres, release_date, vote_average } = props;
   return `<li class="movie__card">
@@ -6,14 +7,14 @@ export function card(props) {
       <img class="movie__poster"
            loading="lazy"
            alt="${title} poster"
-           src="${posterURL}w342${poster_path}"
-           srcset="${posterURL}w342${poster_path} 1x, ${posterURL}w500${poster_path} 2x" />
+           src="${URL.POSTER}w342${poster_path}"
+           srcset="${URL.POSTER}w342${poster_path} 1x, ${URL.POSTER}w500${poster_path} 2x" />
       <div class="movie__description">
           <h2 class="movie__title">${title}</h2>
           <p class="movie__briefs">
-              <span class="movie__genre">${genres.join(', ')}</span>
+              <span class="movie__genre">${genres}</span>
               <span class="movie__devider">&nbsp|&nbsp</span>
-              <span class="movie__year">${release_date.slice(0, 4)}</span> 
+              <span class="movie__year">${release_date}</span> 
               <span class="movie__rating">${vote_average}</span>
           </p>
       </div>
