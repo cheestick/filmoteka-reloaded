@@ -39,13 +39,18 @@ class Controller {
       movie.genre_ids = movie.genre_ids.slice(0, 2);
       movie.vote_average = movie.vote_average.toFixed(1);
       movie.release_date = movie.release_date.slice(0, 4);
-      movie['genres'] = movie.genre_ids.map(id => genre.find(genre => genre.id === id).name);
+      movie['genres'] = movie.genre_ids
+        .map(id => genre.find(genre => genre.id === id).name)
+        .join(', ');
       return movie;
     });
 
     LocalStorage.save(serviceData.MOVIES, results);
     const cardList = Markup.cardCollection(results);
-    Markup.render(cardList, refs.collection);
+    // Markup.render(cardList, refs.collection);
+
+    const movieDetails = Markup.movieInfoModal(results[1]);
+    Markup.render(movieDetails, document.body);
   }
 
   async refreshCatalog() {}

@@ -1,0 +1,139 @@
+.modal.backdrop {
+    // pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: 100vh;
+    min-width: 320px;
+    background-color: rgba(0,0,0, .56);
+}
+
+.modal .background {
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    min-width: 280px;
+    margin-top: 20px;
+    font-size: 12px;
+    line-height: 16px;
+    color: $modal-window-text-color-primary;
+    background-color: $main-background;
+}
+
+.modal .close__container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 48px;
+
+    & .close__button {
+        width: 30px;
+        height: 30px;
+        fill: none;
+        margin: 8px;
+    }
+}
+
+.modal .info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 0 20px 40px 20px;
+}
+
+.modal .poster {
+    width: 240px;
+    height: 357px;
+    border-radius: 5px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.modal .description {
+    display: flex;
+    flex-direction: column;
+    gap: 20px
+}
+
+.modal .title {
+    font-family: $main-font;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 23px;
+    text-transform: uppercase;
+}
+
+.modal .briefs {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    &__row {
+        display: flex;
+        justify-content: start;
+    }
+}
+
+.modal .rating {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 16px;
+    line-height: 14px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    color: $header-text-color;
+    background-color: $accent-color;
+}
+
+.modal .table__heading {
+    width: 120px;
+    padding: 0;
+    color: $modal-window-text-color-secondary;
+    text-transform: capitalize;
+}
+
+.modal .table__data {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+
+    &.original__title {
+        text-transform: uppercase;
+    }
+}
+
+.modal .rating {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 16px;
+    line-height: 14px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    color: $header-text-color;
+    background-color: $accent-color;
+}
+
+.modal .about {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+} 
+
+.modal .about__header {
+    text-transform: uppercase;
+}
+
+.modal .about__overview {
+    line-height: 20px;
+}
+
+.modal .controls {
+    display: flex;
+    justify-content: space-between;
+}
