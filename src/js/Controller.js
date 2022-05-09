@@ -15,13 +15,6 @@ const serviceData = {
   PAGINATION: 'pagination',
 };
 
-// FetchService.trendingMovies()
-//   .then(res => (MovieList.movies = res.data.results))
-//   .then(res => console.log(MovieList.movies));
-// FetchService.genre()
-//   .then(res => (GenreList.genres = res.data.genres))
-//   .then(res => console.log(GenreList.genres));
-
 class Controller {
   constructor() {
     FetchService.genre().then(res => {
