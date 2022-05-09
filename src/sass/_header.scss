@@ -29,3 +29,24 @@
     justify-content: center;
     margin-bottom: 80px;
 }
+
+#search__input {
+    all: unset;
+    color: #ffffff;
+    border-bottom: 1px solid #ffffff;
+    background-color: transparent;
+
+    &::placeholder {
+        color: #ffffff;
+    }
+}
+
+#search__button {
+    all: unset;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+}
