@@ -14,6 +14,7 @@ import refs from './refs';
 class Controller {
   constructor() {
     FetchService.trendingMovies().then(res => {
+      console.log(res);
       const cardList = Markup.cardCollection(res.data.results);
       Markup.render(cardList, refs.collection);
     });

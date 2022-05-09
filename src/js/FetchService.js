@@ -21,20 +21,20 @@ class FetchService {
     });
   }
 
-  trendingMovies() {
-    return this.server.get(URL.TREND);
+  async trendingMovies() {
+    return await this.server.get(URL.TREND);
   }
 
-  movieDetails(movieId) {
-    return this.server.get(URL.MOVIE + movieId);
+  async movieDetails(movieId) {
+    return await this.server.get(URL.MOVIE + movieId);
   }
 
-  searchMovies(query) {
-    return this.server.get(URL.SEARCH, { query });
+  async searchMovies(query) {
+    return await this.server.get(URL.SEARCH, { query });
   }
 
-  genre() {
-    return this.server.get(URL.GENRE);
+  async genre() {
+    return await this.server.get(URL.GENRE);
   }
 }
 
