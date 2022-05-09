@@ -23,9 +23,61 @@ export function card(props) {
 }
 
 export function movieInfoModal(props) {
+  const {
+    id,
+    title,
+    original_title,
+    poster_path,
+    genres,
+    overview,
+    vote_count,
+    vote_average,
+    popularity,
+    watched,
+    queue,
+  } = props;
   return `
   <div class="backdrop">
-    <div class="modal movie-info">
+    <div class="modal movie-info" data-id="${id}">
+      <div class="close__container">
+        <svg class="close__button">
+          <use href="../images/stoprite.svg#cross"></use>
+        </svg>
+      </div>
+      <div class="movie__info">
+         <img class="movie__poster"
+           alt="${title} poster"
+           src="${URL.POSTER}w342${poster_path}"
+           srcset="${URL.POSTER}w342${poster_path} 1x, ${URL.POSTER}w500${poster_path} 2x" />
+        <h2 class="movie__title">${title}</h2>
+        <table class="movie__briefs">
+          <tr>
+            <td>Vote/Votes</td>
+            <td>
+            <span class="movie__rating">${vote_average}</span>
+            <span class="movie__votes">${vote_count}</span>
+            </td>
+          </tr>
+          <tr>
+            <td>Popularity</td>
+            <td>${popularity}</td>
+          </tr>
+          <tr>
+            <td>Original Title</td>
+            <td>${original_title}</td>
+          </tr>
+          <tr>
+            <td>Genre</td>
+            <td>${genres}</td>
+          </tr>
+        </table>
+        <h3 class="about">About</h3>
+        <p class="movie__overview">${overview}</p>
+      </div>
+      <div class="movie__controls">
+        <button class="watched">${watched ? 'Add to' : 'Remove from'} watched</button>
+        <button class="queue">${queue ? 'Add to' : 'Remove from'} queue</button>
+      </div>
     </div>
   </div>
   `;
