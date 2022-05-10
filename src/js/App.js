@@ -16,7 +16,7 @@ const serviceData = {
   MOVIES: 'movies',
 };
 
-class Controller {
+class App {
   constructor() {}
 
   async init() {
@@ -56,4 +56,4 @@ class Controller {
   async refreshCatalog() {}
 }
 
-export default new Controller();
+export default new App();

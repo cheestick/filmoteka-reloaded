@@ -1,4 +1,4 @@
-import Controller from './js/Controller';
+import App from './js/App';
 import './sass/main.scss';
 
-Controller.init();
+App.init();

@@ -3,6 +3,10 @@
    height: 440px;
    overflow: hidden;
 
+   &:hover {
+       cursor: pointer;
+   }
+
    @media screen and (min-width: $tablet-bp) {
        width: 336px;
        height: 495px;
