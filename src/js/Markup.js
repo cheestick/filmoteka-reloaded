@@ -9,6 +9,10 @@ export function render(component, parent) {
   parent.insertAdjacentHTML('afterbegin', component);
 }
 
+export function showMovieIndfoModal(props) {
+  document.body.insertAdjacentHTML('beforeend', movieInfoModal(props));
+}
+
 function clear(component) {
   component.innerHTML = '';
 }

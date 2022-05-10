@@ -10,12 +10,12 @@
     
 
     @media screen and (min-width: $tablet-bp) {
-        height: 215px;
+        height: 219px;
         padding: 45px 32px 0;
         gap: 40px;
     }
 
-    @media screen and (min-width: $tablet-bp) {
+    @media screen and (min-width: $desktop-bp) {
         height: 216px;
     }
 }
