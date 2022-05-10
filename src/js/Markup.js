@@ -9,21 +9,22 @@ export function render(component, parent) {
   parent.insertAdjacentHTML('afterbegin', component);
 }
 
-export function showMovieIndfoModal(props) {
-  document.body.insertAdjacentHTML('beforeend', movieInfoModal(props));
-}
+// export function showMovieIndfoModal(props) {
+//   document.body.insertAdjacentHTML('beforeend', movieInfoModal(props));
+// }
 
-export function closeMovieInfoModal() {
-  document.querySelector('#movie__info__modal').remove();
-}
+// export function closeMovieInfoModal() {
+//   document.querySelector('#movie__info__modal').remove();
+// }
 
 function clear(component) {
   component.innerHTML = '';
 }
 
 export function card(props) {
-  const { id, title, poster_path, genres, release_date, vote_average } = props;
-  return `<li class="movie__card" data-id="${id}">
+  try {
+    const { id, title, poster_path, genres, release_date, vote_average } = props;
+    return `<li class="movie__card" data-id="${id}">
    <a class="movie__link">
       <img class="movie__poster"
            loading="lazy"
@@ -41,24 +42,28 @@ export function card(props) {
       </div>
     </a>
    </li>`;
+  } catch (error) {
+    throw new Error('Movie card information empty', error.message);
+  }
 }
 
 export function movieInfoModal(props) {
-  const {
-    id,
-    title,
-    original_title,
-    poster_path,
-    genres,
-    overview,
-    vote_count,
-    vote_average,
-    popularity,
-    watched = false,
-    queue = true,
-  } = props;
-  return `
- <div class="modal__backdrop js-modal-close" id="movie__info__modal">
+  try {
+    const {
+      id,
+      title,
+      original_title,
+      poster_path,
+      genres,
+      overview,
+      vote_count,
+      vote_average,
+      popularity,
+      watched = false,
+      queue = true,
+    } = props;
+    return `
+ <div class="modal__backdrop js-modal-close" id="movie__info__modal" tabindex="-1">
   <div class="modal__background" data-id="${id}">
     <div class="modal__topper">
       <button class="modal__close">
@@ -119,6 +124,9 @@ export function movieInfoModal(props) {
   </div>
 </div>
   `;
+  } catch (error) {
+    throw new Error('Movie information empty', error.message);
+  }
 }
 
 export function modalStudents(props) {

@@ -3,6 +3,7 @@ import GenreList from './GenreList';
 import MovieList from './MovieList';
 import * as Markup from './Markup';
 import LocalStorage from './LocalStorage';
+import MovieInformationModal from './MovieInformationModal';
 import refs from './refs';
 
 const userData = {
@@ -17,7 +18,9 @@ const serviceData = {
 };
 
 class App {
-  constructor() {}
+  constructor() {
+    this.movieModal = null;
+  }
 
   async init() {
     const [
@@ -50,15 +53,11 @@ class App {
     Markup.render(cardList, refs.collection);
 
     this.activateEventListener();
-    // Markup.showMovieIndfoModal(results[13]);
   }
 
   async refreshCatalog() {}
 
   activateEventListener() {
-    window.addEventListener('click', this.onClick.bind(this));
-    window.addEventListener('keydown', this.onEscape.bind(this));
-    window.addEventListener('touchend', this.onTouch.bind(this));
     refs.collection.addEventListener('click', this.onCardClick.bind(this));
   }
 
@@ -67,40 +66,13 @@ class App {
       const movieID = Number(this.isMovieCard(target).dataset.id);
       const movieList = LocalStorage.load(serviceData.MOVIES);
       const movie = movieList.find(movie => movie.id === movieID);
-      Markup.showMovieIndfoModal(movie);
+
+      this.movieModal = new MovieInformationModal(movie);
     }
   }
 
   isMovieCard(element) {
     return element.closest('.movie__card');
-  }
-
-  onClick(e) {
-    e.preventDefault();
-    if (this.isMovieModalCloseClicked(e.target)) {
-      Markup.closeMovieInfoModal();
-    }
-  }
-
-  isMovieModalCloseClicked(element) {
-    return element.classList.contains('js-modal-close');
-  }
-
-  onTouch(e) {
-    e.preventDefault();
-    if (this.isMovieModalCloseClicked(e.target)) {
-      Markup.closeMovieInfoModal();
-    }
-  }
-
-  onEscape(e) {
-    if (e.code === 'Escape' && this.isMovieInfoModalOpen()) {
-      Markup.closeMovieInfoModal();
-    }
-  }
-
-  isMovieInfoModalOpen() {
-    return document.querySelector('#movie__info__modal') ? true : false;
   }
 }
 
