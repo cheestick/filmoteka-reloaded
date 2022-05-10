@@ -1,48 +1,110 @@
 .header {
+    display: flex;
+    flex-direction: column;
+    gap: 54px;
     max-width: 1024px;
+    min-width: 320px;
+    height: 230px;
+    padding: 40px 20px 0;
     background-color: #000000;
+    
+
+    @media screen and (min-width: $tablet-bp) {
+        height: 215px;
+        padding: 45px 32px 0;
+        gap: 40px;
+    }
+
+    @media screen and (min-width: $tablet-bp) {
+        height: 216px;
+    }
 }
 
 .navigation {
     display: flex;
     justify-content: space-between;
-    margin: 40px 0;
-    padding: 0 40px;
-    width: 1024px;
-
+    align-items: center;
+    
     a {
-        display: inline-flex;
         color: #ffffff;
-        text-decoration: none;
-    }
-
-    &-user {
-        display: flex;
-        gap: 20px;
     }
 }
 
+.logo__button {
+    display: flex;
 
+    @media screen and (min-width: $tablet-bp) {
+        gap: 8px;
+    }
+
+    @media screen and (min-width: $desktop-bp) {
+        gap: 10px;
+    }
+
+    
+}
+
+
+.logo__icon {
+    width: 24px;
+    aspect-ratio: 1/1;
+}
+
+.logo__text {
+    display: none;
+
+    @media screen and (min-width: $tablet-bp) {
+        display: block;
+        font-weight: 500;
+        font-size: 30px;
+        line-height: 35px;
+    }
+}
+
+.navigation-user {
+    display: flex;
+    gap: 40px;
+    line-height: 14px;
+}
+
+.home-button,
+.library-button {
+    border-bottom: 3px solid transparent;
+
+    &:hover,
+    &:focus {
+        border-bottom: 3px solid $accent-color;
+        outline: none;      
+    }
+}
 
 .search__form {
     display: flex;
     justify-content: center;
-    margin-bottom: 80px;
 }
 
 #search__input {
     all: unset;
+    width: 100%;
+    height: 20px;
     color: #ffffff;
     border-bottom: 1px solid #ffffff;
     background-color: transparent;
+    font-weight: 400;
+    line-height: 16px;
 
     &::placeholder {
         color: #ffffff;
+    }
+
+    @media screen and (min-width: $tablet-bp) {
+        width: 336px;
     }
 }
 
 #search__button {
     all: unset;
+    display: none;
     width: 20px;
     height: 20px;
     border: 2px solid #ffffff;

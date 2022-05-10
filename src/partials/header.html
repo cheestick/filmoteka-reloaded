@@ -1,15 +1,21 @@
 <header class="header container">
   <nav class="navigation">
     <div class="logo">
-      <a class="logo__button" href="#" role="button">LOGO</a>
+      <a class="logo__button" href="#" role="button">
+        <svg class="logo__icon">
+          <use href="./images/sprites.svg#film"></use>
+        </svg>
+        <span class="logo__text">Filmoteka</span>
+      </a>
     </div>
     <div class="navigation-user">
-      <a class="home" href="#" role="button">HOME</a>
-      <a class="library" href="#" role="button">MY LIBRARY</a>
+      <a class="home-button" href="#" role="button">HOME</a>
+      <a class="library-button" href="#" role="button">MY LIBRARY</a>
     </div>
   </nav>
   <form class="search__form">
     <input type="text" name="search" id="search__input" placeholder="Movie search" />
     <button id="search__button" type="submit"></button>
   </form>
+  <div class="search-notification"></div>
 </header>
