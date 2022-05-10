@@ -59,7 +59,8 @@ export function movieInfoModal(props) {
     <div class="modal__topper">
       <button class="modal__close">
         <svg class="close__icon">
-          <use href="/sprites.313395d6.svg#cross"></use>
+        <!-- <use href="/sprites.313395d6.svg#cross"></use> -->
+          <use href="/sprites.6bdc8d38.svg#cross"></use> 
         </svg>
       </button>
     </div>
