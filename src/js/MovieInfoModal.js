@@ -2,7 +2,7 @@ import { movieInfoModal } from './Markup';
 
 const MODAL_ID = '#movie__info__modal';
 
-class MovieInformationModal {
+class MovieInfoModal {
   constructor(info = null) {
     this.markup = movieInfoModal;
     this.info = info;
@@ -71,4 +71,4 @@ function onEscape(e) {
 //   this.isMovieModalCloseClicked(e.target) && this.destroy()
 // }
 
-export default MovieInformationModal;
+export default MovieInfoModal;

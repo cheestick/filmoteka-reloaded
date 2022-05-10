@@ -3,7 +3,7 @@ import GenreList from './GenreList';
 import MovieList from './MovieList';
 import * as Markup from './Markup';
 import LocalStorage from './LocalStorage';
-import MovieInformationModal from './MovieInformationModal';
+import MovieInfoModal from './MovieInfoModal';
 import refs from './refs';
 
 const userData = {
@@ -67,7 +67,7 @@ class App {
       const movieList = LocalStorage.load(serviceData.MOVIES);
       const movie = movieList.find(movie => movie.id === movieID);
 
-      this.movieModal = new MovieInformationModal(movie);
+      this.movieModal = new MovieInfoModal(movie);
     }
   }
 
