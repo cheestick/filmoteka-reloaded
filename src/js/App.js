@@ -49,10 +49,51 @@ class App {
     const cardList = Markup.cardCollection(results);
     Markup.render(cardList, refs.collection);
 
-    Markup.showMovieIndfoModal(results[13]);
+    this.activateEventListener();
+    // Markup.showMovieIndfoModal(results[13]);
   }
 
   async refreshCatalog() {}
+
+  activateEventListener() {
+    window.addEventListener('click', this.onClick.bind(this));
+    window.addEventListener('keydown', this.onEscape.bind(this));
+    refs.collection.addEventListener('click', this.onCardClick.bind(this));
+  }
+
+  onCardClick({ target }) {
+    if (this.isMovieCard(target)) {
+      const movieID = Number(this.isMovieCard(target).dataset.id);
+      const movieList = LocalStorage.load(serviceData.MOVIES);
+      const movie = movieList.find(movie => movie.id === movieID);
+      Markup.showMovieIndfoModal(movie);
+    }
+  }
+
+  isMovieCard(element) {
+    return element.closest('.movie__card');
+  }
+
+  onClick(e) {
+    e.preventDefault();
+    if (this.isMovieModalCloseClicked(e.target)) {
+      Markup.closeMovieInfoModal();
+    }
+  }
+
+  isMovieModalCloseClicked(element) {
+    return element.classList.contains('js-modal-close');
+  }
+
+  onEscape(e) {
+    if (e.code === 'Escape' && this.isMovieInfoModalOpen()) {
+      Markup.closeMovieInfoModal();
+    }
+  }
+
+  isMovieInfoModalOpen() {
+    return document.querySelector('#movie__info__modal') ? true : false;
+  }
 }
 
 export default new App();

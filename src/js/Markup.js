@@ -13,14 +13,18 @@ export function showMovieIndfoModal(props) {
   document.body.insertAdjacentHTML('beforeend', movieInfoModal(props));
 }
 
+export function closeMovieInfoModal() {
+  document.querySelector('#movie__info__modal').remove();
+}
+
 function clear(component) {
   component.innerHTML = '';
 }
 
 export function card(props) {
   const { id, title, poster_path, genres, release_date, vote_average } = props;
-  return `<li class="movie__card">
-   <a class="movie__link" data-id="${id}">
+  return `<li class="movie__card" data-id="${id}">
+   <a class="movie__link">
       <img class="movie__poster"
            loading="lazy"
            alt="${title} poster"
@@ -54,13 +58,13 @@ export function movieInfoModal(props) {
     queue = true,
   } = props;
   return `
- <div class="modal__backdrop">
+ <div class="modal__backdrop js-modal-close" id="movie__info__modal">
   <div class="modal__background" data-id="${id}">
     <div class="modal__topper">
       <button class="modal__close">
-        <svg class="close__icon">
-         <use href="/sprites.313395d6.svg#cross"></use> 
-       <!-- <use href="/filmoteka-reloaded/sprites.6bdc8d38.svg#cross"></use>
+        <svg class="close__icon js-modal-close" id="modal__close">
+         <use class="js-modal-close" href="/sprites.313395d6.svg#cross"></use> 
+       <!-- <use class="js-modal-close" href="/filmoteka-reloaded/sprites.6bdc8d38.svg#cross"></use>
        --> 
         </svg>
       </button>
