@@ -58,6 +58,7 @@ class App {
   activateEventListener() {
     window.addEventListener('click', this.onClick.bind(this));
     window.addEventListener('keydown', this.onEscape.bind(this));
+    window.addEventListener('touchstart', this.onTouch.bind(this));
     refs.collection.addEventListener('click', this.onCardClick.bind(this));
   }
 
@@ -83,6 +84,12 @@ class App {
 
   isMovieModalCloseClicked(element) {
     return element.classList.contains('js-modal-close');
+  }
+
+  onTouch(e) {
+    if (this.isMovieModalCloseClicked(e.target)) {
+      Markup.closeMovieInfoModal();
+    }
   }
 
   onEscape(e) {
