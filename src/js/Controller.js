@@ -47,10 +47,10 @@ class Controller {
 
     LocalStorage.save(serviceData.MOVIES, results);
     const cardList = Markup.cardCollection(results);
-    // Markup.render(cardList, refs.collection);
+    Markup.render(cardList, refs.collection);
 
-    const movieDetails = Markup.movieInfoModal(results[1]);
-    Markup.render(movieDetails, document.body);
+    // const movieDetails = Markup.movieInfoModal(results[11]);
+    // Markup.render(movieDetails, document.body);
   }
 
   async refreshCatalog() {}

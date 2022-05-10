@@ -4,11 +4,27 @@ body {
     justify-content: center;
     align-items: center;
     min-width: $mobile-bp;
-    max-width: $desktop-bp;
+    // max-width: $desktop-bp;
     margin: 0 auto;
     font-family: $main-font;
     font-size: $primary-font-size;
     font-weight: $primary-font-weight;
     color: #000000;
     background-color: $app-background;
+}
+
+.container {
+    min-width: 320px;
+
+    @media screen and (max-width: ($tablet-bp - 1)) {
+        width: 320px;
+    }
+
+    @media screen and (min-width: $tablet-bp) {
+        width: $tablet-bp;
+    }
+
+    @media screen and (min-width: $desktop-bp) {
+        width: $desktop-bp;
+    }
 }
