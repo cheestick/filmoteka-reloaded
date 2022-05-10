@@ -58,7 +58,7 @@ class App {
   activateEventListener() {
     window.addEventListener('click', this.onClick.bind(this));
     window.addEventListener('keydown', this.onEscape.bind(this));
-    window.addEventListener('touchstart', this.onTouch.bind(this));
+    window.addEventListener('touchend', this.onTouch.bind(this));
     refs.collection.addEventListener('click', this.onCardClick.bind(this));
   }
 
@@ -87,6 +87,7 @@ class App {
   }
 
   onTouch(e) {
+    e.preventDefault();
     if (this.isMovieModalCloseClicked(e.target)) {
       Markup.closeMovieInfoModal();
     }
