@@ -47,15 +47,17 @@ export function movieInfoModal(props) {
     vote_average,
     popularity,
     watched = false,
-    queue = false,
+    queue = true,
   } = props;
   return `
  <div class="modal__backdrop">
   <div class="modal__background" data-id="${id}">
     <div class="modal__topper">
-      <svg class="modal__topper--close">
-        <use href="/sprites.313395d6.svg#cross"></use>
-      </svg>
+      <button class="modal__close">
+        <svg class="close__icon">
+          <use href="/sprites.313395d6.svg#cross"></use>
+        </svg>
+      </button>
     </div>
     <div class="modal__info">
       <img
