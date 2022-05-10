@@ -50,59 +50,62 @@ export function movieInfoModal(props) {
     queue = false,
   } = props;
   return `
-  <div class="modal backdrop">
-    <div class="background" data-id="${id}">
-      <div class="close__container">
-        <svg class="close__button">
-          <use href="/sprites.313395d6.svg#cross"></use>
-        </svg>
-      </div>
-      <div class="info">
-      <img class="poster"
+ <div class="modal__backdrop">
+  <div class="modal__background" data-id="${id}">
+    <div class="modal__topper">
+      <svg class="modal__topper--close">
+        <use href="/sprites.313395d6.svg#cross"></use>
+      </svg>
+    </div>
+    <div class="modal__info">
+      <img
+        class="info__poster"
         alt="${title} poster"
         src="${URL.POSTER}w342${poster_path}"
-        srcset="${URL.POSTER}w342${poster_path} 1x, ${URL.POSTER}w500${poster_path} 2x" />
+        srcset="${URL.POSTER}w342${poster_path} 1x, ${URL.POSTER}w500${poster_path} 2x"
+      />
       <div class="description">
-          <h2 class="title">${title}</h2>
-          <table >
-          <tbody class="briefs">
+        <h2 class="description__title">${title}</h2>
+        <table class="description__table">
+          <tbody class="briefs__body">
             <tr class="briefs__row">
-              <td class="table__heading">Vote / Votes</td>
-              <td class="table__data">
-              <span class="rating">${vote_average}</span>
-              &nbsp/&nbsp
-              <span class="votes">${vote_count}</span>
+              <td class="briefs__heading">Vote / Votes</td>
+              <td class="briefs__data">
+                <span class="data__rating">${vote_average}</span>
+                &nbsp/&nbsp
+                <span class="data__votes">${vote_count}</span>
               </td>
             </tr>
             <tr class="briefs__row">
-              <td class="table__heading">Popularity</td>
-              <td class="table__data">${popularity}</td>
+              <td class="briefs__heading">Popularity</td>
+              <td class="briefs__data">${popularity}</td>
             </tr>
             <tr class="briefs__row">
-              <td class="table__heading">Original Title</td>
-              <td class="table__data original__title">${original_title}</td>
+              <td class="briefs__heading">Original Title</td>
+              <td class="briefs__data original__title">${original_title}</td>
             </tr>
             <tr class="briefs__row">
-              <td class="table__heading">Genre</td>
-              <td class="table__data">${genres}</td>
+              <td class="briefs__heading">Genre</td>
+              <td class="briefs__data">${genres}</td>
             </tr>
           </tbody>
-          </table>
-          <div class="about">
+        </table>
+        <div class="description__about">
           <h3 class="about__header">About</h3>
           <p class="about__overview">${overview}</p>
-          </div>
-          <div class="controls">
-            <button class="watched">
+        </div>
+        <div class="description__controls">
+          <button id="watched__control" class="watched">
             ${watched ? 'Remove from' : 'Add to'} watched
-            </button>
-            <button class="queue">
+          </button>
+          <button id="queue__control" class="queue">
             ${queue ? 'Remove from' : 'Add to'} queue
-            </button>
-          </div>
+          </button>
+        </div>
       </div>
     </div>
   </div>
+</div>
   `;
 }
 

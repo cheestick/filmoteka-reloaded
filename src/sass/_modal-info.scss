@@ -1,4 +1,4 @@
-.modal.backdrop {
+.modal__backdrop {
     // pointer-events: none;
     display: flex;
     justify-content: center;
@@ -9,7 +9,7 @@
     background-color: rgba(0,0,0, .56);
 }
 
-.modal .background {
+.modal__background {
     display: flex;
     flex-direction: column;
     width: 280px;
@@ -21,13 +21,13 @@
     background-color: $main-background;
 }
 
-.modal .close__container {
+.modal__topper {
     display: flex;
     justify-content: end;
     align-items: center;
     height: 48px;
 
-    & .close__button {
+    &--close {
         width: 30px;
         height: 30px;
         fill: none;
@@ -35,14 +35,14 @@
     }
 }
 
-.modal .info {
+.modal__info {
     display: flex;
     flex-direction: column;
     gap: 20px;
     margin: 0 20px 40px 20px;
 }
 
-.modal .poster {
+.info__poster {
     width: 240px;
     height: 357px;
     border-radius: 5px;
@@ -50,13 +50,13 @@
     object-position: center;
 }
 
-.modal .description {
+.description {
     display: flex;
     flex-direction: column;
     gap: 20px
 }
 
-.modal .title {
+.description__title {
     font-family: $main-font;
     font-weight: 500;
     font-size: 20px;
@@ -64,18 +64,18 @@
     text-transform: uppercase;
 }
 
-.modal .briefs {
+.briefs__body {
     display: flex;
     flex-direction: column;
     gap: 8px;
-
-    &__row {
-        display: flex;
-        justify-content: start;
-    }
 }
 
-.modal .rating {
+.briefs__row {
+    display: flex;
+    justify-content: start;
+}
+
+.data__rating {
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -88,14 +88,14 @@
     background-color: $accent-color;
 }
 
-.modal .table__heading {
+.briefs__heading {
     width: 120px;
     padding: 0;
     color: $modal-window-text-color-secondary;
     text-transform: capitalize;
 }
 
-.modal .table__data {
+.briefs__data {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -106,34 +106,21 @@
     }
 }
 
-.modal .rating {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 36px;
-    height: 16px;
-    line-height: 14px;
-    text-transform: uppercase;
-    border-radius: 5px;
-    color: $header-text-color;
-    background-color: $accent-color;
-}
-
-.modal .about {
+.description__about {
     display: flex;
     flex-direction: column;
     gap: 8px;
 } 
 
-.modal .about__header {
+.about__header {
     text-transform: uppercase;
 }
 
-.modal .about__overview {
+.about__overview {
     line-height: 20px;
 }
 
-.modal .controls {
+.description__controls {
     display: flex;
     justify-content: space-between;
 }
