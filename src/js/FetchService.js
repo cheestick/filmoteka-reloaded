@@ -5,7 +5,6 @@ class FetchService {
   constructor() {
     this.server = axios.create({
       baseURL: URL.BASE,
-      // method: 'get',
       responseType: 'json',
       params: {
         api_key: API_KEY,

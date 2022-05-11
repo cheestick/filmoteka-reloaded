@@ -1,22 +1,9 @@
-// import GenreList from './GenreList';
-// import MovieList from './MovieList';
 import FetchService from './FetchService';
 import * as Markup from './Markup';
 import LocalStorage from './LocalStorage';
 import MovieInfoModal from './MovieInfoModal';
 import refs from './refs';
-
-const userData = {
-  WATCHED: 'watched',
-  QUEUE: 'queue',
-  LIB: 'myLib',
-};
-
-const serviceData = {
-  GENRES: 'genres',
-  PAGINATION: 'pagination',
-  MOVIES: 'movies',
-};
+import { userData, serviceData } from './const';
 
 class App {
   constructor() {

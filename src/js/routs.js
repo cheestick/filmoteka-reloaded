@@ -1,4 +1,5 @@
 const API_KEY = 'e594f8b0e830f95dbd764645df4a6e75';
+
 const URL = {
   BASE: 'https://api.themoviedb.org/3',
   TREND: '/trending/movie/day',
