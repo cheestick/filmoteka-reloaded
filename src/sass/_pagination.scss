@@ -1,20 +1,22 @@
 .pagination {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-content: center;
     column-gap: 16px;
     background-color: $main-background;
-    padding: 40px 0;
+    padding: 40px 20px;
 
     @media screen and (min-width: $tablet-bp) {
-        padding: 60px 0;
+        justify-content: center;
+        padding: 60px 32px;
     }
 }
 
-.pagination > * {
+.tui-page-btn {
     display: flex;
     justify-content: center;
     align-items: center;
+    min-width: 15px;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 500;
@@ -23,7 +25,7 @@
     color: #000000;
 }
 
-.pagination .tui-is-selected {
+.tui-is-selected {
     width: 40px;
     height: 40px;
     background-color: $accent-color;
@@ -31,20 +33,35 @@
     color: #FFFFFF;
 }
 
-.pagination .tui-prev,
-.pagination .tui-next {
+
+
+.tui-prev,
+.tui-next {
     width: 40px;
     height: 40px;
     background-color: $footer-background;
     border-radius: $corner-radius;
 }
 
-.tui-prev,
-.tui-last {
-    transform: translateX(-48px);
+.tui-last,
+.tui-first,
+.tui-next-is-ellip,
+.tui-prev-is-ellip {
+    display: none ;
+
+    @media screen and (min-width: $tablet-bp) {
+        display: flex;
+    }
 }
 
-.tui-first,
-.tui-next {
-    transform: translateX(48px);
+@media screen and (min-width: $tablet-bp) {
+    .tui-prev,
+    .tui-last {
+            transform: translateX(-48px);
+        }
+    
+    .tui-first,
+    .tui-next {
+            transform: translateX(48px);
+        }
 }
