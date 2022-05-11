@@ -4,6 +4,7 @@ const refs = {
   library: document.querySelector('.library'),
   search: document.querySelector('.search__form'),
   collection: document.querySelector('#movie-collection'),
+  pagination: document.querySelector('.pagination'),
   //   queue: document.querySelector('.queue__button'),
   //   watched: document.querySelector('.watched__button'),
 };

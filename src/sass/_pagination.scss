@@ -2,10 +2,49 @@
     display: flex;
     justify-content: center;
     align-content: center;
+    column-gap: 16px;
     background-color: $main-background;
     padding: 40px 0;
 
     @media screen and (min-width: $tablet-bp) {
         padding: 60px 0;
     }
+}
+
+.pagination > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #000000;
+}
+
+.pagination .tui-is-selected {
+    width: 40px;
+    height: 40px;
+    background-color: $accent-color;
+    border-radius: $corner-radius;
+    color: #FFFFFF;
+}
+
+.pagination .tui-prev,
+.pagination .tui-next {
+    width: 40px;
+    height: 40px;
+    background-color: $footer-background;
+    border-radius: $corner-radius;
+}
+
+.tui-prev,
+.tui-last {
+    transform: translateX(-48px);
+}
+
+.tui-first,
+.tui-next {
+    transform: translateX(48px);
 }
