@@ -112,12 +112,6 @@ export function movieInfoModal(props) {
           <p class="about__overview">${overview}</p>
         </div>
         <div class="description__controls">
-          <button id="watched__control" class="watched">
-            ${watched ? 'Remove from' : 'Add to'} watched
-          </button>
-          <button id="queue__control" class="queue">
-            ${queue ? 'Remove from' : 'Add to'} queue
-          </button>
         </div>
       </div>
     </div>
@@ -127,6 +121,21 @@ export function movieInfoModal(props) {
   } catch (error) {
     throw new Error('Movie information empty', error.message);
   }
+}
+
+// <button id="watched__control" class="watched">
+//   ${watched ? 'Remove from' : 'Add to'} watched
+// </button>
+// <button id="queue__control" class="queue">
+//   ${queue ? 'Remove from' : 'Add to'} queue
+// </button>
+
+export function addToButton(type, action = false) {
+  return `
+       <button id="${type}__control" class="${type}">
+            ${action ? 'Remove from' : 'Add to'} ${type}
+          </button>
+    `;
 }
 
 export function modalStudents(props) {

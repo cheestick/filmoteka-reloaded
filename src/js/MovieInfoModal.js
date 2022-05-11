@@ -1,6 +1,12 @@
 import { movieInfoModal } from './Markup';
+import AddToButton from './AddToButton';
 
 const MODAL_ID = '#movie__info__modal';
+const MODAL_CONTROLS = '.description__controls';
+const BUTTON_TYPE = {
+  WATCHED: 'watched',
+  QUEUE: 'queue',
+};
 
 class MovieInfoModal {
   constructor(info = null) {
@@ -8,17 +14,20 @@ class MovieInfoModal {
     this.info = info;
     this.create();
     this.modal = this.getInstance();
+    this.watchedRef = new AddToButton(BUTTON_TYPE.WATCHED, parent(MODAL_CONTROLS));
+    this.queueRef = new AddToButton(BUTTON_TYPE.QUEUE, parent(MODAL_CONTROLS));
     this.modal.focus();
     this.addCloseHandlers();
   }
 
   create() {
     document.body.insertAdjacentHTML('beforeend', this.fillWithData());
-    return this;
   }
 
   destroy() {
     this.modal?.remove();
+    this.watchedRef.destroy();
+    this.queueRef.destroy();
     this.removeCloseHandlers();
     this.modal = null;
   }
@@ -28,7 +37,6 @@ class MovieInfoModal {
   }
 
   fillWithData() {
-    console.log(this.info);
     return this.markup(this.info);
   }
 
@@ -46,6 +54,10 @@ class MovieInfoModal {
     this.modal.removeEventListener('click', this.onClose);
     this.modal.removeEventListener('keydown', this.onClose);
   }
+}
+
+function parent(name) {
+  return document.querySelector(name);
 }
 
 function onClose(e) {
