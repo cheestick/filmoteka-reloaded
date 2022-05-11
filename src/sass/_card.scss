@@ -1,6 +1,6 @@
 .movie__card {
    width: 280px;
-   height: 440px;
+   min-height: 440px;
    overflow: hidden;
 
    &:hover {
@@ -51,10 +51,10 @@
 .movie__title {
     font-size: inherit;
     text-transform: uppercase;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    // text-overflow: ellipsis;
+    // white-space: nowrap;
+    // overflow: hidden;
     color: $body-text-color ;
-    overflow: hidden;
 }
 
 .movie__briefs {
