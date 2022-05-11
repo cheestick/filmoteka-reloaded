@@ -59,8 +59,8 @@ export function movieInfoModal(props) {
       vote_count,
       vote_average,
       popularity,
-      watched = false,
-      queue = true,
+      // watched = false,
+      // queue = true,
     } = props;
     return `
  <div class="modal__backdrop js-modal-close" id="movie__info__modal" tabindex="-1">
@@ -130,10 +130,10 @@ export function movieInfoModal(props) {
 //   ${queue ? 'Remove from' : 'Add to'} queue
 // </button>
 
-export function addToButton(type, action = false) {
+export function addToButton(type, flag = null) {
   return `
        <button id="${type}__control" class="${type}">
-            ${action ? 'Remove from' : 'Add to'} ${type}
+            ${flag?.[type] ? 'Remove from' : 'Add to'} ${type}
           </button>
     `;
 }

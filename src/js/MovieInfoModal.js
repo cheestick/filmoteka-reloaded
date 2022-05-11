@@ -12,10 +12,17 @@ class MovieInfoModal {
   constructor(info = null) {
     this.markup = movieInfoModal;
     this.info = info;
+    console.log(info);
     this.create();
     this.modal = this.getInstance();
-    this.watchedRef = new AddToButton(BUTTON_TYPE.WATCHED, parent(MODAL_CONTROLS));
-    this.queueRef = new AddToButton(BUTTON_TYPE.QUEUE, parent(MODAL_CONTROLS));
+    this.watchedRef = new AddToButton(
+      { type: BUTTON_TYPE.WATCHED, info: this.info },
+      parent(MODAL_CONTROLS),
+    );
+    this.queueRef = new AddToButton(
+      { type: BUTTON_TYPE.QUEUE, info: this.info },
+      parent(MODAL_CONTROLS),
+    );
     this.modal.focus();
     this.addCloseHandlers();
   }

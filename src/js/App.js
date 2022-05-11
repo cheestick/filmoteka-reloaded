@@ -1,6 +1,6 @@
+// import GenreList from './GenreList';
+// import MovieList from './MovieList';
 import FetchService from './FetchService';
-import GenreList from './GenreList';
-import MovieList from './MovieList';
 import * as Markup from './Markup';
 import LocalStorage from './LocalStorage';
 import MovieInfoModal from './MovieInfoModal';
@@ -9,6 +9,7 @@ import refs from './refs';
 const userData = {
   WATCHED: 'watched',
   QUEUE: 'queue',
+  LIB: 'myLib',
 };
 
 const serviceData = {
@@ -20,6 +21,8 @@ const serviceData = {
 class App {
   constructor() {
     this.movieModal = null;
+    this.lib = LocalStorage.load(userData.LIB);
+    this.lib || LocalStorage.save(userData.LIB, []);
   }
 
   async init() {
@@ -45,6 +48,13 @@ class App {
       movie['genres'] = movie.genre_ids
         .map(id => genre.find(genre => genre.id === id).name)
         .join(', ');
+      movie['myLib'] =
+        this.lib && this.findInLib(movie.id)
+          ? { ...this.lib.myLib }
+          : {
+              watched: false,
+              queue: false,
+            };
       return movie;
     });
 
@@ -56,6 +66,14 @@ class App {
   }
 
   async refreshCatalog() {}
+
+  findInLib(movieID) {
+    return this.lib.map(item => item.id === movieID);
+  }
+
+  replaceWitchLibMovieInfo(movie) {
+    movie = findInLib(movie.id);
+  }
 
   activateEventListener() {
     refs.collection.addEventListener('click', this.onCardClick.bind(this));
