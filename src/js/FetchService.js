@@ -5,7 +5,7 @@ class FetchService {
   constructor() {
     this.server = axios.create({
       baseURL: URL.BASE,
-      method: 'get',
+      // method: 'get',
       responseType: 'json',
       params: {
         api_key: API_KEY,
@@ -22,7 +22,7 @@ class FetchService {
   }
 
   async searchMovies(query) {
-    return await this.server.get(URL.SEARCH, { query });
+    return await this.server.get(URL.SEARCH, { params: { query } });
   }
 
   async genre() {
